@@ -1,4 +1,4 @@
-import { Filter, Search } from "@/components";
+import { Filter, Search, TransactionsList } from "@/components";
 
 export default function Home() {
   return (
@@ -8,6 +8,7 @@ export default function Home() {
       </header>
       <Search />
       <Filter />
+      <TransactionsList />
     </main>
   );
 }
