@@ -1,4 +1,19 @@
 @tailwind components;
 
 @layer components {
+  .search-form {
+    @apply w-full flex items-center mt-6;
+  }
+
+  .search-form button {
+    @apply bg-blue p-3 text-sm rounded-tr-md rounded-br-md outline-none border-none hover:scale-110 self-stretch;
+  }
+
+  .search-form button svg {
+    @apply text-white;
+  }
+
+  .search-form input {
+    @apply w-full bg-black-2 p-3 text-sm rounded-tl-md rounded-bl-md outline-none border-none;
+  }
 }
