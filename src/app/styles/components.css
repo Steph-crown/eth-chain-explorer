@@ -33,6 +33,14 @@
     @apply bg-black-2 text-xs px-4 py-2 rounded-md mr-3 mt-1 mb-1 relative;
   }
 
+  .btn-tag {
+    @apply px-4 py-1.5 rounded-[4px] hover:scale-105 mt-1 mb-1;
+  }
+
+  .tag.darker {
+    @apply bg-black;
+  }
+
   .tag.cancellable {
     @apply mr-5 mt-3 mb-2;
   }
@@ -47,5 +55,29 @@
 
   .tag-list {
     @apply flex items-center mt-5 flex-wrap;
+  }
+
+  .txs-list {
+    @apply mt-6 md:mt-10;
+  }
+
+  .tx-card {
+    @apply mb-8 bg-black-2 p-4 px-5 rounded-md text-sm overflow-scroll;
+  }
+
+  .tx-card a {
+    @apply underline text-white-2 break-all;
+  }
+
+  .tx-card a.accent {
+    @apply text-blue text-xs;
+  }
+
+  .tx-flex {
+    @apply flex items-center mt-3;
+  }
+
+  .tx-flex .right {
+    @apply ml-2;
   }
 }

@@ -1,9 +1,13 @@
 import { ITag } from "@/interfaces";
 import React, { FC } from "react";
 
-const Tag: FC<ITag> = ({ name, isCancellable, cancel }) => {
+const Tag: FC<ITag> = ({ name, isCancellable, cancel, tagBg }) => {
   return (
-    <div className={`tag ${isCancellable ? "cancellable" : ""}`}>
+    <div
+      className={`tag ${isCancellable ? "cancellable" : ""} ${
+        tagBg ? tagBg : ""
+      }`}
+    >
       <label>{name}</label>
       {isCancellable ? (
         <button className={`btn btn-cancel`} onClick={cancel}>
