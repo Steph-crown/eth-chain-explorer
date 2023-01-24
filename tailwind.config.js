@@ -15,7 +15,7 @@ module.exports = {
         "black-2": "#1B1B1D",
         purple: "#8250DF",
         white: "#FFFFFF",
-        "white-2": "##777778",
+        "white-2": "#777778",
         "border-blue": "#58A6FF",
         red: "#CF222E",
         blue: "#3B99FC",

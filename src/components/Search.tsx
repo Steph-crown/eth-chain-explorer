@@ -1,10 +1,10 @@
-import React, { FC } from "react";
+import React from "react";
 
 const Search = () => {
   return (
     <form className="search-form">
       <input type="text" placeholder="Enter Ethereum address" />
-      <button>
+      <button className="btn">
         <SearchIcon />
       </button>
     </form>

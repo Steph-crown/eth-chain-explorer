@@ -21,6 +21,14 @@
     @apply h-4 w-4 stroke-2;
   }
 
+  .btn {
+    @apply bg-blue outline-none border-none;
+  }
+
+  .btn-outline {
+    @apply border-blue border border-solid bg-transparent;
+  }
+
   ::-webkit-scrollbar {
     height: 0px;
     width: 0px;
