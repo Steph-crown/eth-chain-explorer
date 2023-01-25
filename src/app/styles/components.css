@@ -102,6 +102,18 @@
     @apply bg-black p-1.5 px-3 rounded outline-none border border-blue border-none mr-2 focus:border-solid focus:border-blue text-sm w-40;
   }
 
+  .empty-state {
+    @apply flex flex-col justify-center items-center;
+  }
+
+  .empty-state h3 {
+    @apply text-base text-white-2;
+  }
+
+  .empty-state p {
+    @apply text-sm mt-2 text-white-2;
+  }
+
   @keyframes rotation {
     0% {
       transform: rotate(0deg);

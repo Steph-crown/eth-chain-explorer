@@ -1,3 +1,4 @@
+export { default as EmptyState } from "./EmptyState";
 export { default as Filter } from "./Filter";
 export { default as Loader } from "./Loader";
 export { default as Search } from "./Search";
