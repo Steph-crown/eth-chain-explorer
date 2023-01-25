@@ -29,6 +29,10 @@
     @apply border-blue border border-solid bg-transparent;
   }
 
+  .btn-red {
+    @apply bg-red ml-2;
+  }
+
   ::-webkit-scrollbar {
     height: 0px;
     width: 0px;

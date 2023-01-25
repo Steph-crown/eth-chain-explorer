@@ -1,8 +1,12 @@
+"use client";
+
 import { ITransaction } from "@/interfaces";
-import { date } from "@/services";
-import React, { FC } from "react";
+import { date, store } from "@/services";
+import React, { Context, FC, useContext } from "react";
 import TagList from "./TagList";
 import "@github/relative-time-element";
+import { TransactionsContext } from "@/contexts";
+import { ITransactionsContext } from "@/contexts/transactionsContext";
 
 const TransactionCard: FC<ITransaction> = ({
   addr,
@@ -11,9 +15,31 @@ const TransactionCard: FC<ITransaction> = ({
   lastTxHash,
   tags,
   dateChecked,
+  id,
 }) => {
   const relativeDateChecked = date.relativeTime(dateChecked);
   const relativeTransactionTime = date.relativeTime(lastTxTime);
+  const { setTransactions } = useContext(
+    TransactionsContext as Context<ITransactionsContext>
+  );
+  console.log("ayaaaa", id);
+
+  const addTagToTransaction = (tag: string) => {
+    console.log("ayaaaa", id);
+
+    setTransactions((prev) => {
+      const updatedTxs = prev.map((tx, index) => {
+        if (index === id) {
+          return { ...tx, tags: [...tx.tags, tag] };
+        }
+        return tx;
+      });
+
+      store.addTransactions(updatedTxs);
+
+      return updatedTxs;
+    });
+  };
 
   return (
     <div className="tx-card">
@@ -49,7 +75,12 @@ const TransactionCard: FC<ITransaction> = ({
       </div>
 
       <div className="tx-flex">
-        <TagList tags={tags} tagBg="darker" editable={true} />
+        <TagList
+          tags={tags}
+          tagBg="darker"
+          editable={true}
+          addTagToTransaction={addTagToTransaction}
+        />
       </div>
     </div>
   );

@@ -14,7 +14,7 @@ const TransactionsList = () => {
     <div className="txs-list">
       {loadingTransaction ? <Loader /> : null}
       {transactions.map((tx, id) => (
-        <TransactionCard key={tx.addr + id} {...tx} />
+        <TransactionCard key={tx.addr + id} id={id} {...tx} />
       ))}
     </div>
   );

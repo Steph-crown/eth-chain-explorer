@@ -5,6 +5,7 @@ interface ITransaction {
   lastTxHash: string;
   tags: string[];
   dateChecked: Date;
+  id?: number;
 }
 
 export default ITransaction;

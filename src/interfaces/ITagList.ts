@@ -6,6 +6,7 @@ interface ITagList {
   deleteTag?: (id: number) => void;
   tagBg?: string;
   editable?: boolean;
+  addTagToTransaction?: (tag: string) => void;
 }
 
 export default ITagList;

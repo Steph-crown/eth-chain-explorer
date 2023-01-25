@@ -14,11 +14,15 @@
   }
 
   .search-form input {
-    @apply w-full bg-black-2 p-3 text-sm rounded-tl-md rounded-bl-md outline-none border-none;
+    @apply w-full bg-black-2 p-3 text-sm rounded-tl-md rounded-bl-md border outline-none border-none focus:border-solid focus:border-blue;
   }
 
   .filter-form {
     @apply relative;
+  }
+
+  .filter-form input {
+    @apply focus:border-solid focus:border-[#333];
   }
 
   .filter-form .btn {
@@ -88,6 +92,14 @@
   .loader {
     @apply w-6 h-6 border-[2px] border-solid border-white-2 border-b-transparent rounded-full inline-block;
     animation: rotation 1s linear infinite;
+  }
+
+  .edit-taglist-form {
+    @apply flex items-center;
+  }
+
+  .edit-taglist-form input {
+    @apply bg-black p-1.5 px-3 rounded outline-none border border-blue border-none mr-2 focus:border-solid focus:border-blue text-sm w-40;
   }
 
   @keyframes rotation {
