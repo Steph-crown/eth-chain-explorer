@@ -15,7 +15,6 @@ import { toast } from "react-hot-toast";
 
 const useSearchWalletInfo = () => {
   const [addrInputValue, setAddrInputValue] = useState("");
-  const [searching, setSearching] = useState(false);
 
   const { setTransactions, setError, setLoadingTransaction } = useContext(
     TransactionsContext as Context<ITransactionsContext>
@@ -56,7 +55,7 @@ const useSearchWalletInfo = () => {
         dateChecked: new Date(),
       };
 
-      setTransactions((prev) => [...prev, params]);
+      setTransactions((prev) => [params, ...prev]);
       clearaddrInputValue();
     } catch (err: unknown) {
       if (err instanceof Error) {
