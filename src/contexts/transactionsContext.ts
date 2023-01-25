@@ -8,4 +8,8 @@ export default TransactionsContext;
 export interface ITransactionsContext {
   transactions: ITransaction[];
   setTransactions: Dispatch<SetStateAction<ITransaction[]>>;
+  loadingTransaction: boolean;
+  setLoadingTransaction: Dispatch<SetStateAction<boolean>>;
+  error: string;
+  setError: Dispatch<SetStateAction<string>>;
 }

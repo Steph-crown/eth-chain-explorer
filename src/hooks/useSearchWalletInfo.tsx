@@ -16,9 +16,8 @@ import { toast } from "react-hot-toast";
 const useSearchWalletInfo = () => {
   const [addrInputValue, setAddrInputValue] = useState("");
   const [searching, setSearching] = useState(false);
-  // const [filteredTags, setFilteredTags] = useState<string[]>([]);
 
-  const { transactions, setTransactions } = useContext(
+  const { setTransactions, setError, setLoadingTransaction } = useContext(
     TransactionsContext as Context<ITransactionsContext>
   );
 
@@ -40,32 +39,33 @@ const useSearchWalletInfo = () => {
       return;
     }
 
-    const walletBalanceInWei = await wallet.getBalance(addrInputValue);
-    const walletBalanceInEth = walletBalanceInWei / 1e18;
+    try {
+      setLoadingTransaction(true);
+      const walletBalanceInWei = await wallet.getBalance(addrInputValue);
+      const walletBalanceInEth = walletBalanceInWei / 1e18;
 
-    const { lastTransactionHash, lastTransactionTime } = await wallet.getLastTx(
-      addrInputValue
-    );
+      const { lastTransactionHash, lastTransactionTime } =
+        await wallet.getLastTx(addrInputValue);
 
-    const params: ITransaction = {
-      addr: addrInputValue,
-      bal: walletBalanceInEth,
-      lastTxHash: lastTransactionHash,
-      lastTxTime: lastTransactionTime,
-      tags: [],
-      dateChecked: new Date(),
-    };
+      const params: ITransaction = {
+        addr: addrInputValue,
+        bal: walletBalanceInEth,
+        lastTxHash: lastTransactionHash,
+        lastTxTime: lastTransactionTime,
+        tags: [],
+        dateChecked: new Date(),
+      };
 
-    setTransactions((prev) => [...prev, params]);
-
-    // // tag already in `filteredTags`
-    // if (filteredTags.some((tag) => tag === val)) {
-    //   toast.error("Filter already active");
-    //   return;
-    // }
-
-    // setFilteredTags((prev) => [...prev, val]);
-    clearaddrInputValue();
+      setTransactions((prev) => [...prev, params]);
+      clearaddrInputValue();
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        toast.error(err.message);
+        console.log("err.message", err.message);
+      }
+    } finally {
+      setLoadingTransaction(false);
+    }
   };
 
   return {
@@ -76,3 +76,7 @@ const useSearchWalletInfo = () => {
 };
 
 export default useSearchWalletInfo;
+
+interface ErrorWithMessage {
+  message: string;
+}

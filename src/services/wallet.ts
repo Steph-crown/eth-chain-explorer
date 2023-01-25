@@ -8,6 +8,10 @@ const wallet = {
     );
     const resInJson = await res.json();
 
+    if (resInJson?.message === "NOTOK") {
+      throw new Error(resInJson?.result);
+    }
+
     return resInJson?.result;
   },
 
@@ -21,7 +25,11 @@ const wallet = {
       `https://api.etherscan.io/api?module=account&action=txlist&address=${addr}&page=1&offset=1&sort=desc&apikey=${ETHERSCAN_TOKEN}`
     );
     const resInJson = await res.json();
-    console.log("res in json", resInJson?.result);
+
+    if (resInJson?.message === "NOTOK") {
+      throw new Error(resInJson?.result);
+    }
+
     const lastTransaction = resInJson?.result ? resInJson?.result[0] : {};
     const lastTransactionTime = date.fromTimeStamp(lastTransaction?.timeStamp);
     const lastTransactionHash = lastTransaction.hash;
