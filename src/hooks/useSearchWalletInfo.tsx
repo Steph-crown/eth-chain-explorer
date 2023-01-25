@@ -63,7 +63,6 @@ const useSearchWalletInfo = () => {
     } catch (err: unknown) {
       if (err instanceof Error) {
         toast.error(err.message);
-        console.log("err.message", err.message);
       }
     } finally {
       setLoadingTransaction(false);

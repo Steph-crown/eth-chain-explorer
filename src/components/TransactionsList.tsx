@@ -15,15 +15,6 @@ const TransactionsList = () => {
   const filterTransactions = (transactions: ITransaction[]) => {
     if (filteredTags.length === 0) return transactions;
 
-    console.log("txs", transactions);
-    console.log("filters", filteredTags);
-    console.log(
-      "after filter",
-      transactions.filter((tx) =>
-        tx.tags.some((tag) => filteredTags.includes(tag))
-      )
-    );
-
     return transactions.filter((tx) =>
       tx.tags.some((tag) => filteredTags.includes(tag))
     );

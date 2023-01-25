@@ -22,11 +22,8 @@ const TransactionCard: FC<ITransaction> = ({
   const { setTransactions } = useContext(
     TransactionsContext as Context<ITransactionsContext>
   );
-  console.log("ayaaaa", id);
 
   const addTagToTransaction = (tag: string) => {
-    console.log("ayaaaa", id);
-
     setTransactions((prev) => {
       const updatedTxs = prev.map((tx, index) => {
         if (index === id) {
