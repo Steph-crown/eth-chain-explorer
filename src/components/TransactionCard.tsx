@@ -17,7 +17,13 @@ const TransactionCard: FC<ITransaction> = ({
 
   return (
     <div className="tx-card">
-      <a href="">Address: {addr}</a>
+      <a
+        href={`https://etherscan.io/address/${addr}`}
+        target="_blank"
+        rel="noreferrer"
+      >
+        Address: {addr}
+      </a>
 
       <div className="tx-flex">
         <p className="muted">Balance: </p>
@@ -28,7 +34,12 @@ const TransactionCard: FC<ITransaction> = ({
         <p className="muted">Last Transaction: </p>
         <p className="right">{relativeTransactionTime}</p>
       </div>
-      <a href="" className="accent">
+      <a
+        href={`https://etherscan.io/tx/${lastTxHash}`}
+        className="accent"
+        target="_blank"
+        rel="noreferrer"
+      >
         {lastTxHash}
       </a>
 
