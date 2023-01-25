@@ -1,0 +1,3 @@
+const ETHERSCAN_TOKEN = process.env.NEXT_PUBLIC_ETHERSCAN_TOKEN;
+
+export default ETHERSCAN_TOKEN;

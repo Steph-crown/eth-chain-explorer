@@ -1,4 +1,6 @@
 import { Filter, Search, TransactionsList } from "@/components";
+import { TransactionsProvider } from "@/providers";
+import "@github/relative-time-element";
 
 export default function Home() {
   return (
@@ -6,9 +8,11 @@ export default function Home() {
       <header>
         <h1>Ethereum Blockchain Explorer</h1>
       </header>
-      <Search />
-      <Filter />
-      <TransactionsList />
+      <TransactionsProvider>
+        <Search />
+        <Filter />
+        <TransactionsList />
+      </TransactionsProvider>
     </main>
   );
 }

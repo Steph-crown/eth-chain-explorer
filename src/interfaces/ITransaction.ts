@@ -1,9 +1,10 @@
 interface ITransaction {
   addr: string;
   bal: number;
-  lastTxTime: string;
+  lastTxTime: Date;
   lastTxHash: string;
   tags: string[];
+  dateChecked: Date;
 }
 
 export default ITransaction;

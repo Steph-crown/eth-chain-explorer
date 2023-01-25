@@ -1,6 +1,8 @@
 import { ITransaction } from "@/interfaces";
+import { date } from "@/services";
 import React, { FC } from "react";
 import TagList from "./TagList";
+import "@github/relative-time-element";
 
 const TransactionCard: FC<ITransaction> = ({
   addr,
@@ -8,7 +10,11 @@ const TransactionCard: FC<ITransaction> = ({
   lastTxTime,
   lastTxHash,
   tags,
+  dateChecked,
 }) => {
+  const relativeDateChecked = date.relativeTime(dateChecked);
+  const relativeTransactionTime = date.relativeTime(lastTxTime);
+
   return (
     <div className="tx-card">
       <a href="">Address: {addr}</a>
@@ -20,11 +26,16 @@ const TransactionCard: FC<ITransaction> = ({
 
       <div className="tx-flex">
         <p className="muted">Last Transaction: </p>
-        <p className="right">{lastTxTime}</p>
+        <p className="right">{relativeTransactionTime}</p>
       </div>
       <a href="" className="accent">
         {lastTxHash}
       </a>
+
+      <div className="tx-flex">
+        <p className="muted">Time of Check: </p>
+        <p className="right">{relativeDateChecked}</p>
+      </div>
 
       <div className="tx-flex">
         <TagList tags={tags} tagBg="darker" editable={true} />

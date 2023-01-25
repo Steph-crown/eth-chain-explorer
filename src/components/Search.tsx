@@ -1,9 +1,20 @@
+"use client";
+
+import { useSearchWalletInfo } from "@/hooks";
 import React from "react";
 
 const Search = () => {
+  const { addrInputValue, handleaddrInputValue, search } =
+    useSearchWalletInfo();
+
   return (
-    <form className="search-form">
-      <input type="text" placeholder="Enter Ethereum address" />
+    <form className="search-form" onSubmit={search}>
+      <input
+        type="text"
+        placeholder="Enter Ethereum wallet address"
+        value={addrInputValue}
+        onChange={handleaddrInputValue}
+      />
       <button className="btn">
         <SearchIcon />
       </button>

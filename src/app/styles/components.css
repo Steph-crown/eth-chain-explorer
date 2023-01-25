@@ -78,6 +78,6 @@
   }
 
   .tx-flex .right {
-    @apply ml-2;
+    @apply ml-2 break-all;
   }
 }
