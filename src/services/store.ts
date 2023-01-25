@@ -13,7 +13,7 @@ const store = {
 
   addTransactions: (txs: ITransaction[]) => {
     const stringifyTxs = JSON.stringify(txs);
-    localStorage.setItem(STORE_KEY, stringifyTxs);
+    localStorage.setItem(STORE_KEY as string, stringifyTxs);
   },
 };
 
