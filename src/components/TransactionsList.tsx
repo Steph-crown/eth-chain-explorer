@@ -16,7 +16,9 @@ const TransactionsList = () => {
     if (filteredTags.length === 0) return transactions;
 
     return transactions.filter((tx) =>
-      tx.tags.some((tag) => filteredTags.includes(tag))
+      tx.tags.some((tag) =>
+        filteredTags.map((tag) => tag.toLowerCase()).includes(tag.toLowerCase())
+      )
     );
   };
 
