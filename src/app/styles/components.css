@@ -80,4 +80,22 @@
   .tx-flex .right {
     @apply ml-2 break-all;
   }
+
+  .loader-container {
+    @apply mt-10 mb-10 flex justify-center;
+  }
+
+  .loader {
+    @apply w-6 h-6 border-[2px] border-solid border-white-2 border-b-transparent rounded-full inline-block;
+    animation: rotation 1s linear infinite;
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 }
