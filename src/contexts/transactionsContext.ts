@@ -12,4 +12,6 @@ export interface ITransactionsContext {
   setLoadingTransaction: Dispatch<SetStateAction<boolean>>;
   error: string;
   setError: Dispatch<SetStateAction<string>>;
+  filteredTags: string[];
+  setFilteredTags: Dispatch<SetStateAction<string[]>>;
 }

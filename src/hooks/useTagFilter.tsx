@@ -1,11 +1,23 @@
 "use client";
 
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import TransactionsContext, {
+  ITransactionsContext,
+} from "@/contexts/transactionsContext";
+import React, {
+  ChangeEvent,
+  Context,
+  FormEvent,
+  useContext,
+  useState,
+} from "react";
 import { toast } from "react-hot-toast";
 
 const useTagFilter = () => {
   const [tagInputValue, setTagInputValue] = useState("");
-  const [filteredTags, setFilteredTags] = useState<string[]>([]);
+  const { filteredTags, setFilteredTags } = useContext(
+    TransactionsContext as Context<ITransactionsContext>
+  );
+  // const [filteredTags, setFilteredTags] = useState<string[]>([]);
 
   const handleTagInputValue = (ev: ChangeEvent<HTMLInputElement>) => {
     setTagInputValue(ev.target.value.trim());

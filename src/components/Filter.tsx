@@ -1,16 +1,22 @@
 "use client";
+import { TransactionsContext } from "@/contexts";
+import { ITransactionsContext } from "@/contexts/transactionsContext";
 import { useTagFilter } from "@/hooks";
-import React from "react";
+import React, { Context, useContext } from "react";
 import TagList from "./TagList";
 
 const Filter = () => {
   const {
     tagInputValue,
     handleTagInputValue,
-    filteredTags,
+    // filteredTags,
     addFilterTag,
     deleteTag,
   } = useTagFilter();
+
+  const { filteredTags } = useContext(
+    TransactionsContext as Context<ITransactionsContext>
+  );
 
   return (
     <div>

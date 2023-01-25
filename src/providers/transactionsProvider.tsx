@@ -9,6 +9,7 @@ const TransactionsProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [transactions, setTransactions] = useState<ITransaction[]>([]);
   const [loadingTransaction, setLoadingTransaction] = useState(false);
   const [error, setError] = useState("");
+  const [filteredTags, setFilteredTags] = useState<string[]>([]);
 
   useEffect(() => {
     const txsFromStore = store.fetchTransactions();
@@ -24,6 +25,8 @@ const TransactionsProvider: FC<{ children: ReactNode }> = ({ children }) => {
         setLoadingTransaction,
         error,
         setError,
+        filteredTags,
+        setFilteredTags,
       }}
     >
       {children}
