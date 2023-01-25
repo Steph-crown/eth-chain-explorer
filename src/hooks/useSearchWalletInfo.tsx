@@ -3,7 +3,7 @@
 import { TransactionsContext } from "@/contexts";
 import { ITransactionsContext } from "@/contexts/transactionsContext";
 import { ITransaction } from "@/interfaces";
-import { wallet } from "@/services";
+import { store, wallet } from "@/services";
 import React, {
   ChangeEvent,
   Context,
@@ -16,7 +16,7 @@ import { toast } from "react-hot-toast";
 const useSearchWalletInfo = () => {
   const [addrInputValue, setAddrInputValue] = useState("");
 
-  const { setTransactions, setError, setLoadingTransaction } = useContext(
+  const { setTransactions, setLoadingTransaction } = useContext(
     TransactionsContext as Context<ITransactionsContext>
   );
 
@@ -55,7 +55,10 @@ const useSearchWalletInfo = () => {
         dateChecked: new Date(),
       };
 
-      setTransactions((prev) => [params, ...prev]);
+      setTransactions((prev) => {
+        store.addTransactions([params, ...prev]);
+        return [params, ...prev];
+      });
       clearaddrInputValue();
     } catch (err: unknown) {
       if (err instanceof Error) {
