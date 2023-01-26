@@ -29,6 +29,14 @@
     @apply bg-[#333];
   }
 
+  .clear-form {
+    @apply flex items-center w-full justify-end mb-4;
+  }
+
+  .clear-form .btn {
+    @apply bg-[#333] py-2 px-3 text-sm rounded-md hover:scale-110;
+  }
+
   .filter-form .note {
     @apply absolute right-0 bottom-[-18px] text-white-2 text-xs;
   }

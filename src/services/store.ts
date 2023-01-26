@@ -15,6 +15,10 @@ const store = {
     const stringifyTxs = JSON.stringify(txs);
     localStorage.setItem(STORE_KEY as string, stringifyTxs);
   },
+
+  clearTransactions: () => {
+    localStorage.removeItem(STORE_KEY as string);
+  },
 };
 
 export default store;
